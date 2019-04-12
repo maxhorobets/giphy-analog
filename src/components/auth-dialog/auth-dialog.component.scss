@@ -1,0 +1,56 @@
+.auth-dialog-section {
+    position: relative;
+    padding: 30px;
+    width: 400px;
+    background-color: rgb(18, 18, 18);
+
+    .close-dialog {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 0;
+        cursor: pointer;
+        background: transparent;
+
+        img {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    .auth-input {
+        width: 100%;
+        background-color: #fff;
+        border-radius: 0;
+        font-weight: 400;
+        border: 0;
+        margin: 15px 0;
+        padding: 0 20px;
+        height: 52px;
+        letter-spacing: 1px;
+        font-size: 18px;
+
+        &::placeholder {
+            color: rgba(0, 0, 0, 0.26)
+        }
+    }
+
+    .login-button {
+        padding: 10px 18px;
+        border-radius: 4px;
+        background-color: #3498db;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 12px;
+        border: none;
+        margin: 15px 0;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .auth-dialog-section {
+        width: 300px;
+    }
+}

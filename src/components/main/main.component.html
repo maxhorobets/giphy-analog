@@ -1,0 +1,71 @@
+<section class="main-section">
+
+    <section class="logo-and-search">
+
+        <div class="logo-and-auth">
+
+            <p class="logo">
+                Giphy analog
+            </p>
+
+            <button @click="authDialog = true" class="auth-btn">
+                log ig
+            </button>
+
+        </div>
+
+
+        <input 
+            class="search-input" 
+            type="text"
+            v-model.trim="serchValue" 
+            placeholder="Search all the GIFs"
+            @input="searchGif()"
+        >
+
+    </section>
+
+    <section class="gifs">
+
+        <ul v-if="gifs.length > 0 && !isError && !isLoading" class="gifs-list">
+
+            <li class="gifs-item" v-for="gif in gifs">
+
+                <button class="like-btn">
+                    <img src="../../assets/heart.svg" alt="">
+                </button>
+
+                <img 
+                    class="gifs-item-image" 
+                    :src="gif.images.preview_gif.url" 
+                    :alt="gif.title"
+                >
+
+                <p class="gifs-descr">
+                    #{{ gif.title }}
+                </p>
+
+            </li>
+
+        </ul>
+
+        <p class="error" v-if="isError">
+            Неизвестная ошибка. Обновите страницу и попробуйте заново :)
+        </p>
+
+        <div v-if="isLoading && !isError" class="loader"></div>
+
+    </section>
+
+    <AuthDialogComponent 
+        v-bind:class="{'auth-dialog-open': authDialog}" 
+        class="auth-dialog" 
+        @closeDialog="closeDialog"
+    >
+    </AuthDialogComponent>
+
+    <div v-if="authDialog" class="overlay">
+
+    </div>
+
+</section>
